@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Restaurant App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <svg viewBox="0 0 48 48" fill="none" width="28" style="vertical-align:middle"><circle cx="24" cy="24" r="20" fill="#ee522b"/></svg>
+      <span>DineEase</span>
+    </div>
+    <nav>
+      <button class="nav-btn" data-view="menu">Menu</button>
+      <button class="nav-btn" data-view="cart">Cart</button>
+      <button class="nav-btn" data-view="checkout">Checkout</button>
+      <button class="nav-btn" data-view="history">Order History</button>
+      <button class="nav-btn" data-view="profile">Profile</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- MENU PAGE -->
+    <section id="view-menu" class="view active">
+      <div class="section">
+        <h2>Menu</h2>
+        <div class="menu-list">
+          <div class="menu-item">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc2-lLmbaJfrnb2wA2gdsdTf5-dEBti3Boe-cpAraDKz4m2wHYmbUGsY8YBbxoscGDyja4vbXvIq4GTfAmo_0pPwA21d4bfzoT_qJGwEjEGWEYjd8ZOE4fXBvhcSwu9jiRztuZiOyviuwom3scC_pTCit92zenL0z7z7PWXjTVja67sYwzgaRVtkSj5i6X6lstiCRBxLgzTFOpZm4weW6n5CnOCJE_uwfHykfWVcFFSQGjezgtXj83J6FcHOhwIW-iio2zO4H35TY" alt="Crispy Calamari">
+            <div>
+              <h3>Crispy Calamari</h3>
+              <p>Tender calamari rings, lightly battered and fried to a golden crisp. Served with a zesty marinara sauce.</p>
+              <div class="price-add">
+                <span class="price">₹499</span>
+                <button class="add-cart-btn" data-id="1" data-name="Crispy Calamari" data-price="499">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdFxQRp-mA2fCssA64NUR-Cr8wti2IHp_CM6JXjKioOgV4yxkIMQUHMM1ca4smbIn2Hu4g6kblQZq7-dKHK2gllWcpOULZasVTShbqFYyf14ahQX49mFDjlTagwLrU5KFXECNVL0VRW0leoethBUtjZ2byORKuDzDMIRJZJuzsV1KSXOKvmVzlL9t5JMOYFpeuEM3B2RNmN2KZRYEr9nUthwl7r2HBA_aq9T-Oc2Rbfl2ftdXga878QQQG2-_a0HrLAvZpexZc3R4" alt="Spinach and Artichoke Dip">
+            <div>
+              <h3>Spinach and Artichoke Dip</h3>
+              <p>Creamy blend of spinach, artichoke hearts, and cheeses, served with warm pita bread.</p>
+              <div class="price-add">
+                <span class="price">₹399</span>
+                <button class="add-cart-btn" data-id="2" data-name="Spinach and Artichoke Dip" data-price="399">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8yIuAvG_OPxh5jSJwrjTuDC-mKFS7zIXhPnJ7GEJt1rWas40mJ11oE_NN86GUQBZo7GSMTWhOI9OfMfb2IWuhb-L3-RZeGoHca-e-xHANHhaVxCPhJEoxCdnfFccdNlbIhZL1jptkm-nYrZX6yhNFC-K2D6aPjVLKWtfw9mRyBfcFPJ7QmHDwyJqsubwwX2LLEcN_Fd3efmW51WlwDtwia1T1JU4L2gh3YrfLwGSEyLVDxsmQcY3YF5MmPRAFu1Qf1cz7SfvLRas" alt="Bruschetta Trio">
+            <div>
+              <h3>Bruschetta Trio</h3>
+              <p>Toasted baguette slices topped with fresh tomatoes and basil, creamy ricotta and honey, and roasted red peppers with balsamic glaze.</p>
+              <div class="price-add">
+                <span class="price">₹349</span>
+                <button class="add-cart-btn" data-id="3" data-name="Bruschetta Trio" data-price="349">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+          <!-- Add more menu items as needed -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CART PAGE -->
+    <section id="view-cart" class="view">
+      <div class="section">
+        <h2>Your Cart</h2>
+        <div id="cart-list"></div>
+        <div id="cart-summary"></div>
+        <button id="to-checkout" class="primary-btn">Proceed to Checkout</button>
+      </div>
+    </section>
+
+    <!-- CHECKOUT PAGE -->
+    <section id="view-checkout" class="view">
+      <div class="section">
+        <h2>Checkout</h2>
+        <form id="checkout-form">
+          <label>Name<input type="text" name="name" required></label>
+          <label>Email<input type="email" name="email" required></label>
+          <label>Phone<input type="tel" name="phone" required pattern="[0-9]{10}"></label>
+          <button type="submit" class="primary-btn">Place Order</button>
+        </form>
+        <div id="checkout-summary"></div>
+      </div>
+    </section>
+
+    <!-- ORDER HISTORY PAGE -->
+    <section id="view-history" class="view">
+      <div class="section">
+        <h2>Order History</h2>
+        <div id="history-list"></div>
+      </div>
+    </section>
+
+    <!-- PROFILE PAGE -->
+    <section id="view-profile" class="view">
+      <div class="section">
+        <h2>My Account</h2>
+        <form id="profile-form">
+          <label>Name<input type="text" name="name"></label>
+          <label>Email<input type="email" name="email"></label>
+          <label>Phone<input type="tel" name="phone"></label>
+          <label>Street Address<input type="text" name="address"></label>
+          <label>City<input type="text" name="city"></label>
+          <label>State<input type="text" name="state"></label>
+          <label>Zip Code<input type="text" name="zip"></label>
+          <button type="submit" class="primary-btn">Save Changes</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© 2025 DineEase — Restaurant App</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
