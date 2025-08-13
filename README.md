@@ -49,9 +49,6 @@ No server or Node.js required!
 - Edit `js/data.js` to change menu items, categories, and images.
 - Update styles in `styles/styles.css` for your brand.
 
-## License
-
-MIT License. Free for personal and commercial use.
 
 ---
 
